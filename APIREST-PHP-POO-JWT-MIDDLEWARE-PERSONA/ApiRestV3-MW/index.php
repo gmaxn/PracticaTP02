@@ -83,6 +83,8 @@ TrearTodos
 ***Despues de ejecutar UNO
 ***Despues de ejecutar Dos
 */
+
+
 /*habilito el CORS para todos*/
 $app->add(function ($req, $res, $next) {
     $response = $next($req, $res);
