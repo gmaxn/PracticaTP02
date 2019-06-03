@@ -33,6 +33,7 @@ class PersonaApi extends Persona implements IApiUsable
 		$email = $ArrayDeParametros['email'];
 		$usuario = $ArrayDeParametros['user'];
 		$pass = $ArrayDeParametros['pass'];
+		$rol = $ArrayDeParametros['rol'];
 
 		$persona = new Persona();
 
@@ -41,9 +42,10 @@ class PersonaApi extends Persona implements IApiUsable
 		$persona->email = $email;
 		$persona->usuario = $usuario;
 		$persona->pass = $pass;
+		$persona->rol = $rol;
 
 		$persona->create();
-
+/*
 		$archivos = $request->getUploadedFiles();
 		$destino = "./fotos/";
 
@@ -52,7 +54,7 @@ class PersonaApi extends Persona implements IApiUsable
 		$extension = array_reverse($extension)[0];
 
 		$archivos['foto']->moveTo($destino . $nombre . "." . $extension);
-
+*/
 		$response->getBody()->write("Se guardó la persona");
 
 		return $response;

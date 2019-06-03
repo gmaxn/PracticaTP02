@@ -77,13 +77,13 @@ class Persona
 
 		$consulta = $objetoAccesoDato->RetornarConsulta("
 
-			INSERT INTO Persons (FirstName, LastName, Email, User, Pass) 
+			INSERT INTO Persons (FirstName, LastName, Email, User, Pass, Rol) 
 			values ('$this->nombre',
 			'$this->apellido',
 			'$this->email',
 			'$this->user',
-			'$this->pass')
-
+			'$this->pass'
+			'$this->rol')
 		");
 
 		$consulta->execute();

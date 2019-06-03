@@ -27,6 +27,8 @@ $app->group('/Personas', function () {
   //$this->get('/{id}', \PersonaApi::class . ':Traer')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 
   $this->post('/', \PersonaApi::class . ':TraerTodo');
+  
+  $this->post('/NuevoUsuario', \PersonaApi::class . ':Cargar');
 
   //$this->delete('/', \PersonaApi::class . ':Borrar');
 

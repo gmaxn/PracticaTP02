@@ -15,12 +15,13 @@ class MWparaAutentificar
 		
 		if($request->isPost())
 		{
-			if(isset($arrayDeParametros['user']) && isset($arrayDeParametros['pass']))
+		if(isset($arrayDeParametros['user-login']) && isset($arrayDeParametros['pass-login']))
 			{
 				
-				$user = $arrayDeParametros['user'];
-				$pass = $arrayDeParametros['pass'];
+				$user = $arrayDeParametros['user-login'];
+				$pass = $arrayDeParametros['pass-login'];
 	
+
 				$usuario = Persona::readByUserPass($user, $pass);
 
 	
@@ -29,14 +30,13 @@ class MWparaAutentificar
 					'perfil' => $usuario->rol,
 					'alias' => $usuario->user
 				);
+
 	
 				$token = AutentificadorJWT::CrearToken($datos);
 				$objDelaRespuesta->esValido = true;
 				
-				echo $token;
-				//$response->withHeader('jwt', $token);
-				$response->withJson($token, 200);
-				
+				//echo $token;
+				$objDelaRespuesta->respuesta = $token;
 
 			}
 
@@ -45,10 +45,12 @@ class MWparaAutentificar
 				$token = $arrayDeParametros['jwt'];
 				
 				try {
+
 					AutentificadorJWT::verificarToken($token);
 					$objDelaRespuesta->esValido = true;
 				} 
 				catch (Exception $e) {
+
 					//guardar en un log
 					$objDelaRespuesta->excepcion = $e->getMessage();
 					$objDelaRespuesta->esValido = false;
