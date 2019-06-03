@@ -32,7 +32,12 @@ class MWparaAutentificar
 	
 				$token = AutentificadorJWT::CrearToken($datos);
 				$objDelaRespuesta->esValido = true;
+				
 				echo $token;
+				//$response->withHeader('jwt', $token);
+				$response->withJson($token, 200);
+				
+
 			}
 
 			if(isset($arrayDeParametros['jwt']))
