@@ -20,6 +20,7 @@ use Slim\Http\Headers;
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Interfaces\CallableResolverInterface;
+use Slim\Interfaces\Http\EnvironmentInterface;
 use Slim\Interfaces\InvocationStrategyInterface;
 use Slim\Interfaces\RouterInterface;
 
@@ -38,9 +39,9 @@ class DefaultServicesProvider
         if (!isset($container['environment'])) {
             /**
              * This service MUST return a shared instance
-             * of \Slim\Http\Environment.
+             * of \Slim\Interfaces\Http\EnvironmentInterface.
              *
-             * @return Environment
+             * @return EnvironmentInterface
              */
             $container['environment'] = function () {
                 return new Environment($_SERVER);

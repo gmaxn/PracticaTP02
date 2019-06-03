@@ -15,13 +15,13 @@ class Persona
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso();
 
 		$consulta = $objetoAccesoDato->RetornarConsulta("
-			SELECT PersonID, 
-			FirstName, 
-			LastName,
-			Email,
-			User,
-			Pass,
-			Rol  
+			SELECT PersonID as id, 
+			FirstName as nombre, 
+			LastName as apellido,
+			Email as email,
+			User as user,
+			Pass as pass,
+			Rol as rol 
 			FROM Persons;
 		");
 
@@ -35,13 +35,13 @@ class Persona
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 			
 		$consulta = $objetoAccesoDato->RetornarConsulta("
-			SELECT PersonID, 
-			FirstName, 
-			LastName,
-			Email,
-			User,
-			Pass,
-			Rol  
+			SELECT PersonID as id, 
+			FirstName as nombre, 
+			LastName as apellido,
+			Email as email,
+			User as user,
+			Pass as pass,
+			Rol as rol 
 			FROM Persons
 			WHERE User=? AND Pass=?;
 		");

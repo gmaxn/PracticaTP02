@@ -24,12 +24,12 @@ class MWparaAutentificar
 
 		if ($request->isGet()) 
 		{
-			//$response->getBody()->write('<p>NO necesita credenciales para los get </p>');
+			$response->getBody()->write('<p>NO necesita credenciales para los get </p>');
 			$response = $next($request, $response);
 		} 
 		else 
 		{
-			//$response->getBody()->write('<p>verifico credenciales</p>');
+			$response->getBody()->write('<p>verifico credenciales</p>');
 
 		/*
 			//perfil = Profesor (GET, POST)
@@ -76,6 +76,10 @@ class MWparaAutentificar
 				$objDelaRespuesta->excepcion = $e->getMessage();
 				$objDelaRespuesta->esValido = false;
 			}
+
+
+
+			
 			if ($objDelaRespuesta->esValido) 
 			{
 				if ($request->isPost()) 

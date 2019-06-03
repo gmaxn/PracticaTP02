@@ -49,7 +49,7 @@
     },
     "autoload-dev": {
         "files": [
-          "tests/Assets/PhpFunctionOverrides.php"
+          "tests/Assets/HeaderFunctions.php"
         ]
     },
     "scripts": {

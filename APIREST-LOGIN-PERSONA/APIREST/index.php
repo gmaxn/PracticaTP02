@@ -22,18 +22,17 @@ $app = new \Slim\App(["settings" => $config]);
 
 $app->group('/Personas', function () {
  
-  $this->get('/', \PersonaApi::class . ':TraerTodo')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  //$this->get('/', \PersonaApi::class . ':TraerTodo')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
  
-  $this->get('/{id}', \PersonaApi::class . ':Traer')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
+  //$this->get('/{id}', \PersonaApi::class . ':Traer')->add(\MWparaCORS::class . ':HabilitarCORSTodos');
 
-  $this->post('/', \PersonaApi::class . ':Cargar');
+  $this->post('/', \PersonaApi::class . ':TraerTodo');
 
-  $this->delete('/', \PersonaApi::class . ':Borrar');
+  //$this->delete('/', \PersonaApi::class . ':Borrar');
 
-  $this->put('/', \PersonaApi::class . ':Modificar');
+  //$this->put('/', \PersonaApi::class . ':Modificar');
      
 })->add(\MWparaAutentificar::class . ':VerificarUsuario')->add(\MWparaCORS::class . ':HabilitarCORS8080');
-
 
 
 $app->run();

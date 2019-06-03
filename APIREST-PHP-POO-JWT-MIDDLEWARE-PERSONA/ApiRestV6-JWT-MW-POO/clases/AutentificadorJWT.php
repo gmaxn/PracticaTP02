@@ -20,11 +20,11 @@ class AutentificadorJWT
 
         $payload = array(
 
-        	'iat'=>$ahora,
+        	'iat' => $ahora,
             'exp' => $ahora + (60*60),
             'aud' => self::Aud(),
             'data' => $datos,
-            'app'=> "API REST PERSONAS 2017"
+            'app' => "API REST PERSONAS 2017"
         );
      
         return JWT::encode($payload, self::$claveSecreta);
@@ -86,17 +86,14 @@ class AutentificadorJWT
         
         if (!empty($_SERVER['HTTP_CLIENT_IP'])) 
         {
-
             $aud = $_SERVER['HTTP_CLIENT_IP'];
         } 
         elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) 
         {
-
             $aud = $_SERVER['HTTP_X_FORWARDED_FOR'];
         } 
         else 
         {
-
             $aud = $_SERVER['REMOTE_ADDR'];
         }
         
